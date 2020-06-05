@@ -15,9 +15,9 @@ export default class Login extends Component {
   }
 
   onClickListener = viewId => {
-    if (viewId === 'register') {
+    if (viewId === 'signup') {
       this.props.navigation.dispatch(
-        StackActions.replace('RegistrationScreen'),
+        StackActions.replace('SignUp'),
       );
     } else if (viewId === 'login') {
       this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
@@ -28,15 +28,13 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View>
-        <Text>LOGIN</Text>
-      </View>
-/*<View style={styles.container}>
+
+        <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Image style={styles.inputIcon} />
           <TextInput
             style={styles.inputs}
-            placeholder="Email"
+            placeholder="Username"
             keyboardType="email-address"
             underlineColorAndroid="transparent"
             onChangeText={email => this.setState({email})}
@@ -67,10 +65,10 @@ export default class Login extends Component {
 
         <TouchableHighlight
           style={styles.buttonContainer}
-          onPress={() => this.onClickListener('register')}>
-          <Text>Register</Text>
+          onPress={() => this.onClickListener('signup')}>
+          <Text>Sign up</Text>
         </TouchableHighlight>
-      </View>*/
+      </View>
     );
   }
 }
@@ -115,7 +113,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   loginButton: {
-    backgroundColor: '#00b5ec',
+    backgroundColor: '#800000',
   },
   loginText: {
     color: 'white',
