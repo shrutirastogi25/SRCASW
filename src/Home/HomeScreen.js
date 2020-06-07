@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import {StackActions} from '@react-navigation/native';
@@ -16,7 +17,6 @@ export default class HomeScreen extends Component {
   };
   render() {
     return (
-      // eslint-disable-next-line react-native/no-inline-styles
       <View style={{flex: 10}}>
         <View style={{flex: 9}}>
           <Text>HomeScreen</Text>
