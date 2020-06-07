@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   StyleSheet,
   Text,
@@ -16,9 +16,7 @@ export default class Login extends Component {
 
   onClickListener = viewId => {
     if (viewId === 'signup') {
-      this.props.navigation.dispatch(
-        StackActions.replace('SignUp'),
-      );
+      this.props.navigation.dispatch(StackActions.replace('SignUp'));
     } else if (viewId === 'login') {
       this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
     } else if (viewId === 'restore_password') {
@@ -28,8 +26,7 @@ export default class Login extends Component {
 
   render() {
     return (
-
-        <View style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Image style={styles.inputIcon} />
           <TextInput
@@ -51,13 +48,12 @@ export default class Login extends Component {
             onChangeText={password => this.setState({password})}
           />
         </View>
-
         <TouchableHighlight
           style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.onClickListener('login')}>
+          // onPress={() => this.onClickListener('login')}
+        >
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
-
         <TouchableHighlight
           onPress={() => this.onClickListener('restore_password')}>
           <Text>Forgot your password?</Text>

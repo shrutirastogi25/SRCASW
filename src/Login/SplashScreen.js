@@ -1,8 +1,6 @@
-
 import React, {Component} from 'react';
 import {View, StatusBar, Image} from 'react-native';
 import {StackActions} from '@react-navigation/native';
-
 
 export default class SplashScreen extends Component {
   constructor(props) {
@@ -19,18 +17,17 @@ export default class SplashScreen extends Component {
   render() {
     return (
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#800000',
+          backgroundColor: 'white',
         }}>
-        <StatusBar
-          backgroundColor='red'
-          barStyle="dark-content"
-        />
+        <StatusBar backgroundColor="white" barStyle="dark-content" />
         <Image
-          style={{}}
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{width: 200, height: 200}}
           source={require('../Assets/logo.png')}
           resizeMode="contain"
         />
