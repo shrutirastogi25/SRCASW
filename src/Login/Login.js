@@ -50,8 +50,7 @@ export default class Login extends Component {
         </View>
         <TouchableHighlight
           style={[styles.buttonContainer, styles.loginButton]}
-          // onPress={() => this.onClickListener('login')}
-        >
+          onPress={() => this.onClickListener('login')}>
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
         <TouchableHighlight

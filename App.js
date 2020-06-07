@@ -5,6 +5,8 @@ import SplashScreen from './src/Login/SplashScreen';
 import Login from './src/Login/Login';
 import ResetPassword from './src/Login/ResetPassword';
 import Signup from './src/Login/Signup';
+import HomeScreen from './src/Home/HomeScreen';
+import ProfileScreen from './src/Profile/ProfileScreen';
 
 const Stack = createStackNavigator();
 function App() {
@@ -23,6 +25,8 @@ function App() {
         />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
         <Stack.Screen name="SignUp" component={Signup} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
