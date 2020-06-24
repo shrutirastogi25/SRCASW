@@ -7,6 +7,7 @@ import ResetPassword from './src/Login/ResetPassword';
 import Signup from './src/Login/Signup';
 import HomeScreen from './src/Home/HomeScreen';
 import ProfileScreen from './src/Profile/ProfileScreen';
+import Option from './src/Login/Option';
 
 const Stack = createStackNavigator();
 function App() {
@@ -27,6 +28,11 @@ function App() {
         <Stack.Screen name="SignUp" component={Signup} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen
+          name="Option"
+          component={Option}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

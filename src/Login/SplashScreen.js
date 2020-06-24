@@ -12,7 +12,7 @@ export default class SplashScreen extends Component {
     }, 4000);
   }
   moveToNextScreen = () => {
-    this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
+    this.props.navigation.dispatch(StackActions.replace('Option'));
   };
   render() {
     return (
