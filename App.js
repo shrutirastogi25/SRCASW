@@ -8,6 +8,7 @@ import Signup from './src/Login/Signup';
 import HomeScreen from './src/Home/HomeScreen';
 import ProfileScreen from './src/Profile/ProfileScreen';
 import Option from './src/Login/Option';
+import StudentSignup from './src/Login/StudentSignup';
 
 const Stack = createStackNavigator();
 function App() {
@@ -26,6 +27,7 @@ function App() {
         />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
         <Stack.Screen name="SignUp" component={Signup} />
+        <Stack.Screen name="StudentSignup" component={StudentSignup} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen

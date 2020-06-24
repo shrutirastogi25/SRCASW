@@ -5,11 +5,10 @@ import {
   View,
   StyleSheet,
   TextInput,
-  TouchableHighlight 
+  TouchableHighlight
 } from 'react-native';
 
-
-export default class Signup extends Component{
+export default class StudentSignup extends Component{
   constructor(props){
     super(props);
   }
@@ -24,16 +23,16 @@ export default class Signup extends Component{
   render(){
     return (
       <View style={styles.container}>
-        <View style={styles.inputContainer}>
+        <View style={styles.inputContainer}> 
           <TextInput
             style={styles.input}
             placeholder="Username"
-            underlineColorAndroid='transparent'
+            underlineColorAndroid="transparent"
             placeholderTextColor='#FFFFFF'
             onChangeText={id => this.setState({id})}
           /> 
         </View> 
-
+                  
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
@@ -43,7 +42,7 @@ export default class Signup extends Component{
             placeholderTextColor='#FFFFFF'
             onChangeText={password => this.setState({password})}
           /> 
-        </View>
+        </View> 
 
         <View style={styles.inputContainer}>
           <TextInput
@@ -54,7 +53,7 @@ export default class Signup extends Component{
             placeholderTextColor='#FFFFFF'
             onChangeText={name => this.setState({name})}
           /> 
-        </View>
+        </View> 
 
         <View style={styles.inputContainer}>
           <TextInput
@@ -67,17 +66,29 @@ export default class Signup extends Component{
           /> 
         </View>
 
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="Phone Number"
+            keyboardType="phone-pad"
+            underlineColorAndroid="transparent"
+            placeholderTextColor='#FFFFFF'
+            onChangeText={phone => this.setState({phone})}
+          /> 
+        </View>
+        
         <TouchableHighlight
          style={ styles.SignupButton}
          onPress={() => this.onClickListener('signup')}>
          <Text style={styles.SignupText}>Signup</Text>
         </TouchableHighlight>
+         
       </View>
-
+  
     );
   }
 }
-
+  
 const styles = StyleSheet.create({
   container : {
     flex: 1,
@@ -85,21 +96,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor:'#FFFFFF',
   },
-
+  
   inputContainer : {
     borderRadius: 25,
     width: 350,
-    backgroundColor: '#A64C4C',
+    backgroundColor: '#A44848',
     height: 50,
     marginVertical: 10,
     paddingHorizontal: 30
   },
-
+  
   input : {
     marginTop:10,
     fontSize: 17,
     color:'#FFFFFF'
-    
   },
 
   SignupButton: {
@@ -118,5 +128,4 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontWeight: 'bold'
   },
-
-});
+}) 

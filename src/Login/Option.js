@@ -4,7 +4,7 @@ import {Text, View, StyleSheet} from 'react-native';
 import Color from '../Utils/Color';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+//import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default class Option extends Component {
   constructor(props) {
