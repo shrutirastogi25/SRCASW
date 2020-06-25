@@ -11,8 +11,10 @@ export default class Option extends Component {
     super(props);
   }
   onClickListener = viewId => {
-    if (viewId === 'login') {
-      this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
+    if (viewId === 'student') {
+      this.props.navigation.dispatch(StackActions.replace('StudentSignup'));
+    } else if (viewId === 'teacher') {
+      this.props.navigation.dispatch(StackActions.replace('TeacherSignup'));
     }
   };
 
@@ -35,7 +37,7 @@ export default class Option extends Component {
           }}>
           <TouchableOpacity
             style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-            onPress={() => this.onClickListener('login')}>
+            onPress={() => this.onClickListener('teacher')}>
             <Text style={styles.textMajor}>Teacher</Text>
           </TouchableOpacity>
         </View>
@@ -51,7 +53,7 @@ export default class Option extends Component {
           }}>
           <TouchableOpacity
             style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-            onPress={() => this.onClickListener('login')}>
+            onPress={() => this.onClickListener('student')}>
             <Text style={styles.textMajor}>Student</Text>
           </TouchableOpacity>
         </View>

@@ -8,14 +8,14 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-export default class Signup extends Component {
+export default class TeacherSignup extends Component {
   constructor(props) {
     super(props);
   }
 
   onClickListener = viewId => {
-    if (viewId === 'signup') {
-      this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
+    if (viewId === 'login') {
+      this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
     }
   };
 
@@ -67,7 +67,7 @@ export default class Signup extends Component {
 
         <TouchableHighlight
           style={styles.SignupButton}
-          onPress={() => this.onClickListener('signup')}>
+          onPress={() => this.onClickListener('login')}>
           <Text style={styles.SignupText}>Signup</Text>
         </TouchableHighlight>
       </View>

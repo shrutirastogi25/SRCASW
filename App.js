@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SplashScreen from './src/Login/SplashScreen';
 import Login from './src/Login/Login';
 import ResetPassword from './src/Login/ResetPassword';
-import Signup from './src/Login/Signup';
+import TeacherSignup from './src/Login/TeacherSignup';
 import HomeScreen from './src/Home/HomeScreen';
 import ProfileScreen from './src/Profile/ProfileScreen';
 import Option from './src/Login/Option';
@@ -36,7 +36,7 @@ function App() {
           name="NewPassword"
           component={NewPassword}
         />
-        <Stack.Screen name="SignUp" component={Signup} />
+        <Stack.Screen name="TeacherSignup" component={TeacherSignup} />
         <Stack.Screen name="StudentSignup" component={StudentSignup} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
