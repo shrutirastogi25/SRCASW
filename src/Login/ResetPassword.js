@@ -17,13 +17,15 @@ export default class ResetPassword extends Component {
       this.props.navigation.dispatch(StackActions.replace('NewPassword'));
     } else if (viewId === 'signIn') {
       this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
-    }
+    } else if (viewId === 'emailOtp') {
+      this.props.navigation.dispatch(StackActions.replace('EmailOtp'));
+  }
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.textStyle}>OTP sent to number: </Text>
+        <Text style={styles.textStyle}>OTP sent to Phone Number: </Text>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.inputs}
@@ -41,6 +43,10 @@ export default class ResetPassword extends Component {
           style={[styles.buttonContainer, styles.loginButton]}
           onPress={() => this.onClickListener('signIn')}>
           <Text style={styles.loginText}>Back to Login Screen</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => this.onClickListener('emailOtp')}>
+          <Text>OTP generation using Email Address?</Text>
         </TouchableHighlight>
       </View>
     );

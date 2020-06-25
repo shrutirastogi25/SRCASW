@@ -10,6 +10,7 @@ import ProfileScreen from './src/Profile/ProfileScreen';
 import Option from './src/Login/Option';
 import StudentSignup from './src/Login/StudentSignup';
 import NewPassword from './src/Login/NewPassword';
+import EmailOtp from './src/Login/EmailOtp';
 
 const Stack = createStackNavigator();
 function App() {
@@ -30,6 +31,11 @@ function App() {
           options={{headerShown: false}}
           name="ResetPassword"
           component={ResetPassword}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="EmailOtp"
+          component={EmailOtp}
         />
         <Stack.Screen
           options={{headerShown: false}}
