@@ -26,15 +26,15 @@ function App() {
           name="LoginScreen"
           component={Login}
         />
-        <Stack.Screen 
+        <Stack.Screen
           options={{headerShown: false}}
-          name="ResetPassword" 
-          component={ResetPassword} 
+          name="ResetPassword"
+          component={ResetPassword}
         />
-        <Stack.Screen 
+        <Stack.Screen
           options={{headerShown: false}}
-          name="NewPassword" 
-          component={NewPassword} 
+          name="NewPassword"
+          component={NewPassword}
         />
         <Stack.Screen name="SignUp" component={Signup} />
         <Stack.Screen name="StudentSignup" component={StudentSignup} />
