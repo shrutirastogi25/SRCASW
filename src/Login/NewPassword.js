@@ -1,51 +1,50 @@
 import { TextInput, TouchableHighlight } from 'react-native-gesture-handler';
 import React, { Component } from 'react';
-import {Text,View, StyleSheet} from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import {StackActions} from '@react-navigation/native';
 
-export default class ResetPassword extends Component{
+class NewPassword extends Component {
     state = {
-        otp : 0
-    }
-
-    constructor(props){
-        super(props);
+        passwordOne: '',
+        passwordTwo: '',
     }
 
     onClickListener = viewId => {
-        if (viewId === 'newPass') {
-          this.props.navigation.dispatch(StackActions.replace('NewPassword'));
-        } else if (viewId === 'signIn') {
-          this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
-        } 
+        if (viewId === 'login') {
+            this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
+        }
     };
 
-    render(){
+    render() {
         return(
             <View style={styles.container}>
-                <Text style={styles.textStyle}>OTP sent to number: </Text>
                 <View style={styles.inputContainer}>
-                    <TextInput 
-                        style={styles.inputs}
-                        placeholder='Enter OTP'
-                        keyboardType='numeric'
-                        onChangeText={otp => this.setState({otp})}
+                    <TextInput
+                    style={styles.inputs}
+                    placeholder='New Password'
+                    keyboardType='default'
+                    secureTextEntry={true}
+                    onChangeText={passwordOne => this.setState({passwordOne})}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                    style={styles.inputs}
+                    placeholder='Confirm Password'
+                    keyboardType='default'
+                    secureTextEntry={true}
+                    onChangeText={ passwordTwo => this.setState({passwordTwo})}
                     />
                 </View>
                 <TouchableHighlight
-                    style={[styles.buttonContainer, styles.loginButton]}
-                    onPress={() => this.onClickListener('newPass')}>
-                    <Text style={styles.loginText}>Submit</Text>
-                </TouchableHighlight>
-                <TouchableHighlight
-                    style={[styles.buttonContainer, styles.loginButton]}
-                    onPress={() => this.onClickListener('signIn')}>
-                    <Text style={styles.loginText}>Back to Login Screen</Text>
+                style={[styles.buttonContainer, styles.loginButton]}
+                onPress={() => this.onClickListener('login')}>
+                    <Text style={styles.loginText}>Done</Text>
                 </TouchableHighlight>
             </View>
-        );
+        )
     }
-}
+} 
 
 const styles = StyleSheet.create({
     container: {
@@ -86,7 +85,6 @@ const styles = StyleSheet.create({
     loginText: {
         color: 'white',
     },
-    textStyle: {
-        marginBottom: 20,
-    },
 });
+
+export default NewPassword;
