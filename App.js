@@ -1,4 +1,5 @@
 import React from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import SplashScreen from './src/Login/SplashScreen';
@@ -11,6 +12,7 @@ import Option from './src/Login/Option';
 import StudentSignup from './src/Login/StudentSignup';
 import NewPassword from './src/Login/NewPassword';
 import EmailOtp from './src/Login/EmailOtp';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 function App() {
@@ -28,7 +30,14 @@ function App() {
           component={Login}
         />
         <Stack.Screen
-          options={{headerShown: false}}
+          options={{
+            headerTitle: 'Change Password',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => alert('this is a button')}>
+                <Ionicons size={20} name={'md-arrow-round-back'} />
+              </TouchableOpacity>
+            ),
+          }}
           name="ResetPassword"
           component={ResetPassword}
         />

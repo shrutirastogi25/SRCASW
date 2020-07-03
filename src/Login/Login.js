@@ -6,24 +6,42 @@ import {
   TextInput,
   TouchableHighlight,
   Image,
+  BackHandler,
 } from 'react-native';
 import {StackActions} from '@react-navigation/native';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
   }
 
   onClickListener = viewId => {
-    if (viewId === 'signup') {
-      this.props.navigation.dispatch(StackActions.replace('SignUp'));
+    if (viewId === 'option') {
+      this.props.navigation.dispatch(StackActions.replace('Option'));
     } else if (viewId === 'login') {
       this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
     } else if (viewId === 'restore_password') {
       this.props.navigation.dispatch(StackActions.replace('ResetPassword'));
     }
   };
-
+  componentDidMount() {
+    BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackButtonClick,
+    );
+  }
+  componentWillUnmount() {
+    BackHandler.removeEventListener(
+      'hardwareBackPress',
+      this.handleBackButtonClick,
+    );
+  }
+  handleBackButtonClick() {
+    Alert.alert('You clicked back. Now Screen will move to ThirdPage');
+    this.props.navigation.navigate('Option');
+    return true;
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -60,8 +78,8 @@ export default class Login extends Component {
 
         <TouchableHighlight
           style={styles.buttonContainer}
-          onPress={() => this.onClickListener('signup')}>
-          <Text>Sign up</Text>
+          onPress={() => this.onClickListener('option')}>
+          <Text>Don't have an account? Sign up</Text>
         </TouchableHighlight>
       </View>
     );
