@@ -38,7 +38,6 @@ export default class Login extends Component {
     );
   }
   handleBackButtonClick() {
-    Alert.alert('You clicked back. Now Screen will move to ThirdPage');
     this.props.navigation.navigate('Option');
     return true;
   }
