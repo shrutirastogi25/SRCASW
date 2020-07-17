@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -17,8 +17,25 @@ export default class ProfileScreen extends Component {
       this.props.navigation.dispatch(StackActions.replace('Attendance'));
     } else if (viewId === 'notification') {
       this.props.navigation.dispatch(StackActions.replace('Notification'));
+    } else if (viewId === 'login') {
+      this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
     }
   };
+  createTwoButtonAlert = () =>
+    Alert.alert(
+      'Logout?',
+      'Do you really want to logout?',
+      [
+        {
+          text: 'Yes',
+          onPress: () => this.onClickListener('login'),
+          style: 'cancel',
+        },
+        {text: 'No', onPress: () => console.log('OK Pressed')},
+      ],
+      {cancelable: false},
+    );
+
   render() {
     return (
       <View style={{flex: 1}}>
@@ -54,7 +71,8 @@ export default class ProfileScreen extends Component {
                 style={{
                   flexDirection: 'row',
                   marginLeft: 10,
-                }}>
+                }}
+                onPress={this.createTwoButtonAlert}>
                 <Ionicons
                   color={Color.Red}
                   size={25}

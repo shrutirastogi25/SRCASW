@@ -56,7 +56,11 @@ function App() {
         <Stack.Screen name="TeacherSignup" component={TeacherSignup} />
         <Stack.Screen name="StudentSignup" component={StudentSignup} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen
+          name="ProfileScreen"
+          component={ProfileScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="Notification" component={Notification} />
         <Stack.Screen name="Attendance" component={Attendance} />
         <Stack.Screen
