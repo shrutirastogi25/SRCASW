@@ -1,5 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -21,7 +22,50 @@ export default class ProfileScreen extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <View style={{flex: 9}} />
+        <View style={{flex: 9}}>
+          <View style={{flex: 3, flexDirection: 'row'}}>
+            <View
+              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+              {/* <View style={{borderRadius: 30, elevation: 5}}> */}
+              <Ionicons size={100} name={'md-person'} style={{elevation: 15}} />
+              {/* </View> */}
+            </View>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={styles.darkText}>Shruti Rastogi</Text>
+              <Text style={styles.lightText}>Computer Science</Text>
+              <Text style={styles.lightText}>3rd year</Text>
+            </View>
+          </View>
+          <View style={{flex: 9}}>
+            <View style={{flex: 8, backgroundColor: 'red'}}>
+              <Text>Hi</Text>
+            </View>
+            <View
+              style={{
+                flex: 1.5,
+                justifyContent: 'center',
+              }}>
+              <TouchableOpacity
+                style={{
+                  flexDirection: 'row',
+                  marginLeft: 10,
+                }}>
+                <Ionicons
+                  color={Color.Red}
+                  size={25}
+                  name={'md-power'}
+                  style={{elevation: 5, marginRight: 10}}
+                />
+                <Text style={styles.logout}>Logout</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
         <View
           style={{
             flex: 1,
@@ -77,3 +121,21 @@ export default class ProfileScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  darkText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Color.Maroon,
+  },
+  lightText: {
+    fontSize: 14,
+    color: Color.Grey,
+  },
+  logout: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Color.Red,
+    elevation: 5,
+  },
+});
