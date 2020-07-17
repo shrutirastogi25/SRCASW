@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableHighlight,
 } from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 
 export default class TeacherSignup extends Component {
   constructor(props) {
@@ -22,54 +23,56 @@ export default class TeacherSignup extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Username"
-            underlineColorAndroid="transparent"
-            placeholderTextColor="#FFFFFF"
-            onChangeText={id => this.setState({id})}
-          />
-        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#FFFFFF"
+              onChangeText={id => this.setState({id})}
+            />
+          </View>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            underlineColorAndroid="transparent"
-            secureTextEntry={true}
-            placeholderTextColor="#FFFFFF"
-            onChangeText={password => this.setState({password})}
-          />
-        </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              underlineColorAndroid="transparent"
+              secureTextEntry={true}
+              placeholderTextColor="#FFFFFF"
+              onChangeText={password => this.setState({password})}
+            />
+          </View>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Name"
-            keyboardType="default"
-            underlineColorAndroid="transparent"
-            placeholderTextColor="#FFFFFF"
-            onChangeText={name => this.setState({name})}
-          />
-        </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Name"
+              keyboardType="default"
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#FFFFFF"
+              onChangeText={name => this.setState({name})}
+            />
+          </View>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            keyboardType="email-address"
-            underlineColorAndroid="transparent"
-            placeholderTextColor="#FFFFFF"
-            onChangeText={email => this.setState({email})}
-          />
-        </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              keyboardType="email-address"
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#FFFFFF"
+              onChangeText={email => this.setState({email})}
+            />
+          </View>
 
-        <TouchableHighlight
-          style={styles.SignupButton}
-          onPress={() => this.onClickListener('login')}>
-          <Text style={styles.SignupText}>Signup</Text>
-        </TouchableHighlight>
+          <TouchableHighlight
+            style={styles.SignupButton}
+            onPress={() => this.onClickListener('login')}>
+            <Text style={styles.SignupText}>Signup</Text>
+          </TouchableHighlight>
+        </ScrollView>
       </View>
     );
   }

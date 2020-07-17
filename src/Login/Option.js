@@ -20,7 +20,7 @@ export default class Option extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'white'}}>
+      <View style={{flex: 1}}>
         <View
           style={{flex: 0.5, justifyContent: 'center', alignItems: 'center'}}>
           <Text style={styles.textOut}>I am a</Text>
