@@ -5,6 +5,7 @@ import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Color from '../Utils/Color';
+import {color} from 'react-native-reanimated';
 
 export default class ProfileScreen extends Component {
   constructor(props) {
@@ -59,8 +60,92 @@ export default class ProfileScreen extends Component {
             </View>
           </View>
           <View style={{flex: 9}}>
-            <View style={{flex: 8, backgroundColor: 'red'}}>
-              <Text>Hi</Text>
+            <View style={{flex: 8}}>
+              
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  borderBottomWidth: 1,
+                }}>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    marginLeft: 10,
+                    alignItems: 'center',
+                  }}>
+                  <Ionicons color={Color.Grey} size={25} name={'md-call'} />
+                  <Text style={styles.light}>+91 9643091153</Text>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  borderBottomWidth: 1,
+                }}>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    marginLeft: 10,
+                    alignItems: 'center',
+                  }}>
+                  <Ionicons color={Color.Grey} size={25} name={'md-mail'} />
+                  <Text style={styles.light}>shruti.rastogi2501@gmail.com</Text>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  borderBottomWidth: 1,
+                }}>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    marginLeft: 10,
+                    alignItems: 'center',
+                  }}>
+                  <Ionicons color={Color.Grey} size={25} name={'md-people'} />
+                  <Text style={styles.light}>Not a member of any Society</Text>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  borderBottomWidth: 1,
+                }}>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    marginLeft: 10,
+                    alignItems: 'center',
+                  }}>
+                  <Ionicons color={Color.Grey} size={25} name={'md-cog'} />
+                  <Text style={styles.light}>Settings</Text>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  borderBottomWidth: 1,
+                }}>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    marginLeft: 10,
+                    alignItems: 'center',
+                  }}>
+                  <Ionicons
+                    color={Color.Grey}
+                    size={25}
+                    name={'md-information-circle'}
+                  />
+                  <Text style={styles.light}>About</Text>
+                </TouchableOpacity>
+              </View>
             </View>
             <View
               style={{
@@ -149,6 +234,12 @@ const styles = StyleSheet.create({
   lightText: {
     fontSize: 14,
     color: Color.Grey,
+  },
+  light: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Color.Grey,
+    marginLeft: 10,
   },
   logout: {
     fontSize: 20,
