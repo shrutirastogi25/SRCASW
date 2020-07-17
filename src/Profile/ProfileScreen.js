@@ -13,7 +13,7 @@ export default class ProfileScreen extends Component {
     if (viewId === 'home') {
       this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
     } else if (viewId === 'attendance') {
-      this.props.navigation.dispatch(StackActions.replace('ProfileScreen'));
+      this.props.navigation.dispatch(StackActions.replace('Attendance'));
     } else if (viewId === 'notification') {
       this.props.navigation.dispatch(StackActions.replace('Notification'));
     }
@@ -48,7 +48,8 @@ export default class ProfileScreen extends Component {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.onClickListener('attendance')}>
               <Ionicons color="white" size={50} name={'md-calendar'} />
             </TouchableOpacity>
           </View>

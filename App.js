@@ -12,6 +12,8 @@ import Option from './src/Login/Option';
 import StudentSignup from './src/Login/StudentSignup';
 import NewPassword from './src/Login/NewPassword';
 import EmailOtp from './src/Login/EmailOtp';
+import Notification from './src/Notifications/Notification';
+import Attendance from './src/Attendance/Attendance';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
@@ -55,6 +57,8 @@ function App() {
         <Stack.Screen name="StudentSignup" component={StudentSignup} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen name="Notification" component={Notification} />
+        <Stack.Screen name="Attendance" component={Attendance} />
         <Stack.Screen
           name="Option"
           component={Option}

@@ -6,16 +6,16 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Color from '../Utils/Color';
 
-export default class HomeScreen extends Component {
+export default class Notification extends Component {
   constructor(props) {
     super(props);
   }
   onClickListener = viewId => {
     if (viewId === 'profile') {
       this.props.navigation.dispatch(StackActions.replace('ProfileScreen'));
+    } else if (viewId === 'home') {
+      this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
     } else if (viewId === 'attendance') {
-      this.props.navigation.dispatch(StackActions.replace('Attendance'));
-    } else if (viewId === 'notification') {
       this.props.navigation.dispatch(StackActions.replace('Notification'));
     }
   };
@@ -37,7 +37,7 @@ export default class HomeScreen extends Component {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={() => this.onClickListener('home')}>
               <Ionicons color="white" size={50} name={'md-home'} />
             </TouchableOpacity>
           </View>
@@ -49,7 +49,8 @@ export default class HomeScreen extends Component {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <TouchableOpacity onPress={() => this.onClickListener('attendance')}>
+            <TouchableOpacity
+              onPress={() => this.onClickListener('attendance')}>
               <Ionicons color="white" size={50} name={'md-calendar'} />
             </TouchableOpacity>
           </View>
@@ -61,8 +62,7 @@ export default class HomeScreen extends Component {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <TouchableOpacity
-              onPress={() => this.onClickListener('notification')}>
+            <TouchableOpacity>
               <Ionicons color="white" size={50} name={'md-notifications'} />
             </TouchableOpacity>
           </View>
