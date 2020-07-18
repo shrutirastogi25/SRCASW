@@ -4,6 +4,7 @@ import {View} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Dropdown} from 'react-native-material-dropdown';
 import Color from '../Utils/Color';
 
 export default class Attendance extends Component {
@@ -20,9 +21,63 @@ export default class Attendance extends Component {
     }
   };
   render() {
+    let year = [
+      {
+        value: 'First',
+      },
+      {
+        value: 'Second',
+      },
+      {
+        value: 'Third',
+      },
+    ];
+    let subject = [
+      {
+        value: 'C++',
+      },
+      {
+        value: 'Java Programming',
+      },
+      {
+        value: 'Discrete Mathematics',
+      },
+      {
+        value: 'Operating Systems',
+      },
+      {
+        value: 'Computer Networks',
+      },
+      {
+        value: 'Data Structures',
+      },
+      {
+        value: 'Android Programming',
+      },
+      {
+        value: 'PHP',
+      },
+      {
+        value: 'Database Management System',
+      },
+      {
+        value: 'Software Engineering',
+      },
+      {
+        value: 'Algorithms',
+      },
+    ];
+
     return (
       <View style={{flex: 1}}>
-        <View style={{flex: 9}} />
+        <View style={{flex: 9, flexDirection: 'row'}}>
+          <View style={{flex: 1}}>
+            <Dropdown label="Year" data={year} />
+          </View>
+          <View style={{flex: 1}}>
+            <Dropdown label="Subject" data={subject} />
+          </View>
+        </View>
         <View
           style={{
             flex: 1,
