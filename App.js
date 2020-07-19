@@ -14,6 +14,7 @@ import NewPassword from './src/Login/NewPassword';
 import EmailOtp from './src/Login/EmailOtp';
 import Notification from './src/Notifications/Notification';
 import Attendance from './src/Attendance/Attendance';
+import BottomNavBar from './src/CommonComponents/BottomNavBar';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
