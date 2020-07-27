@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {View, ScrollView, Text} from 'react-native';
+import {View, ScrollView, Text, StyleSheet, FlatList} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -9,6 +9,36 @@ import Color from '../Utils/Color';
 export default class Notification extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      list: [],
+    };
+  }
+  getList = () => {
+    const li = [
+      {key: '1'},
+      {key: '2'},
+      {key: '3'},
+      {key: '4'},
+      {key: '5'},
+      {key: '6'},
+      {key: '7'},
+      {key: '8'},
+      {key: '9'},
+      {key: '10'},
+      {key: '11'},
+      {key: '12'},
+      {key: '13'},
+      {key: '14'},
+      {key: '15'},
+      {key: '16'},
+    ];
+    this.setState({
+      list: li,
+    });
+  };
+
+  componentWillMount() {
+    this.getList();
   }
   onClickListener = viewId => {
     if (viewId === 'profile') {
@@ -19,29 +49,24 @@ export default class Notification extends Component {
       this.props.navigation.dispatch(StackActions.replace('Notification'));
     }
   };
+
   render() {
     return (
       <View style={{flex: 1}}>
         <View style={{flex: 9}}>
-          <ScrollView style={{flex: 1, backgroundColor: 'red'}}>
-            <View style={{flex: 1}}>
-              <Text>Hello</Text>
-            </View>
-            <View style={{flex: 1}}>
-              <Text>Hello</Text>
-            </View>
-            <View style={{flex: 1}}>
-              <Text>Hello</Text>
-            </View>
-            <View style={{flex: 1}}>
-              <Text>Hello</Text>
-            </View>
-            <View style={{flex: 1}}>
-              <Text>Hello</Text>
-            </View>
-            <View style={{flex: 1}}>
-              <Text>Hello</Text>
-            </View>
+          <ScrollView>
+            <FlatList
+              scrollEnabled={true}
+              style={{flex: 1}}
+              data={this.state.list}
+              renderItem={({item}) => (
+                <View>
+                  <TouchableOpacity style={styles.container}>
+                    <Text style={styles.darkText}>{item.key}</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            />
           </ScrollView>
         </View>
         <View
@@ -98,3 +123,22 @@ export default class Notification extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  darkText: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: Color.Maroon,
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderTopLeftRadius: 60,
+    height: 100,
+    elevation: 10,
+    marginVertical: 5,
+    marginHorizontal: 10,
+    backgroundColor: Color.LightMaroon,
+  },
+});

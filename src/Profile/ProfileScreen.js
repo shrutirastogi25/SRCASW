@@ -61,7 +61,6 @@ export default class ProfileScreen extends Component {
           </View>
           <View style={{flex: 9}}>
             <View style={{flex: 8}}>
-              
               <View
                 style={{
                   flex: 1,
