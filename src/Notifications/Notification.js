@@ -60,7 +60,7 @@ export default class Notification extends Component {
               style={{flex: 1}}
               data={this.state.list}
               renderItem={({item}) => (
-                <View>
+                <View style={{backgroundColor: Color.LightMaroon}}>
                   <TouchableOpacity style={styles.container}>
                     <Text style={styles.darkText}>{item.key}</Text>
                   </TouchableOpacity>
@@ -136,9 +136,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderTopLeftRadius: 60,
     height: 100,
-    elevation: 10,
-    marginVertical: 5,
+    elevation: 5,
+    marginVertical: 15,
     marginHorizontal: 10,
-    backgroundColor: Color.LightMaroon,
+    backgroundColor: 'white',
   },
 });

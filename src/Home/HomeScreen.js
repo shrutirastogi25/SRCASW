@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, Text, FlatList, ScrollView, StyleSheet} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -9,6 +9,36 @@ import Color from '../Utils/Color';
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      list: [],
+    };
+  }
+  getList = () => {
+    const li = [
+      {key: '1'},
+      {key: '2'},
+      {key: '3'},
+      {key: '4'},
+      {key: '5'},
+      {key: '6'},
+      {key: '7'},
+      {key: '8'},
+      {key: '9'},
+      {key: '10'},
+      {key: '11'},
+      {key: '12'},
+      {key: '13'},
+      {key: '14'},
+      {key: '15'},
+      {key: '16'},
+    ];
+    this.setState({
+      list: li,
+    });
+  };
+
+  componentWillMount() {
+    this.getList();
   }
   onClickListener = viewId => {
     if (viewId === 'profile') {
@@ -22,7 +52,22 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <View style={{flex: 9}} />
+        <View style={{flex: 9}}>
+          <ScrollView>
+            <FlatList
+              scrollEnabled={true}
+              style={{flex: 1}}
+              data={this.state.list}
+              renderItem={({item}) => (
+                <View style={{backgroundColor: Color.LightMaroon}}>
+                  <TouchableOpacity style={styles.container}>
+                    <Text style={styles.darkText}>{item.key}</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            />
+          </ScrollView>
+        </View>
         <View
           style={{
             flex: 1,
@@ -78,3 +123,22 @@ export default class HomeScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  darkText: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: Color.Maroon,
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderTopLeftRadius: 60,
+    height: 250,
+    elevation: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
+    backgroundColor: Color.WhiteSmoke,
+  },
+});
