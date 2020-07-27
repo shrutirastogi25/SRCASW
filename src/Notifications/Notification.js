@@ -4,6 +4,7 @@ import {View, ScrollView, Text} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import BottomNavBar from '../CommonComponents/BottomNavBar';
 import Color from '../Utils/Color';
 
 export default class Notification extends Component {
@@ -11,12 +12,14 @@ export default class Notification extends Component {
     super(props);
   }
   onClickListener = viewId => {
-    if (viewId === 'profile') {
-      this.props.navigation.dispatch(StackActions.replace('ProfileScreen'));
-    } else if (viewId === 'home') {
+    if (viewId === 'home') {
       this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
     } else if (viewId === 'attendance') {
+      this.props.navigation.dispatch(StackActions.replace('Attendance'));
+    } else if (viewId === 'notification') {
       this.props.navigation.dispatch(StackActions.replace('Notification'));
+    } else if (viewId === 'login') {
+      this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
     }
   };
   render() {
@@ -44,55 +47,8 @@ export default class Notification extends Component {
             </View>
           </ScrollView>
         </View>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: Color.Maroon,
-            flexDirection: 'row',
-          }}>
-          <View
-            style={{
-              flex: 1,
-              borderRightColor: 'white',
-              borderRightWidth: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TouchableOpacity onPress={() => this.onClickListener('home')}>
-              <Ionicons color="white" size={50} name={'md-home'} />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              borderRightColor: 'white',
-              borderRightWidth: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TouchableOpacity
-              onPress={() => this.onClickListener('attendance')}>
-              <Ionicons color="white" size={50} name={'md-calendar'} />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              borderRightColor: 'white',
-              borderRightWidth: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TouchableOpacity>
-              <Ionicons color="white" size={50} name={'md-notifications'} />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <TouchableOpacity onPress={() => this.onClickListener('profile')}>
-              <Ionicons color="white" size={50} name={'md-person'} />
-            </TouchableOpacity>
-          </View>
+        <View style={{flex: 1}}>
+          <BottomNavBar name={'Notification'} />
         </View>
       </View>
     );

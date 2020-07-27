@@ -79,55 +79,8 @@ export default class Attendance extends Component {
             <Dropdown label="Subject" data={subject} />
           </View>
         </View>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: Color.Maroon,
-            flexDirection: 'row',
-          }}>
-          <View
-            style={{
-              flex: 1,
-              borderRightColor: 'white',
-              borderRightWidth: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TouchableOpacity onPress={() => this.onClickListener('home')}>
-              <Ionicons color="white" size={50} name={'md-home'} />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              borderRightColor: 'white',
-              borderRightWidth: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TouchableOpacity>
-              <Ionicons color="white" size={50} name={'md-calendar'} />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              borderRightColor: 'white',
-              borderRightWidth: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TouchableOpacity
-              onPress={() => this.onClickListener('notification')}>
-              <Ionicons color="white" size={50} name={'md-notifications'} />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <TouchableOpacity onPress={() => this.onClickListener('profile')}>
-              <Ionicons color="white" size={50} name={'md-person'} />
-            </TouchableOpacity>
-          </View>
+        <View style={{flex: 1}}>
+          <BottomNavBar name={'Attendance'} />
         </View>
       </View>
     );
