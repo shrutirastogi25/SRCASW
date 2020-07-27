@@ -14,7 +14,8 @@ import NewPassword from './src/Login/NewPassword';
 import EmailOtp from './src/Login/EmailOtp';
 import Notification from './src/Notifications/Notification';
 import Attendance from './src/Attendance/Attendance';
-import BottomNavBar from './src/CommonComponents/BottomNavBar';
+import About from './src/Profile/About';
+import Settings from './src/Profile/Settings';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
@@ -62,6 +63,8 @@ function App() {
           component={ProfileScreen}
           options={{headerShown: false}}
         />
+        <Stack.Screen name="About" component={About} />
+        <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Notification" component={Notification} />
         <Stack.Screen name="Attendance" component={Attendance} />
         <Stack.Screen

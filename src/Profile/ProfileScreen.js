@@ -5,7 +5,6 @@ import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Color from '../Utils/Color';
-import {color} from 'react-native-reanimated';
 
 export default class ProfileScreen extends Component {
   constructor(props) {
@@ -20,6 +19,10 @@ export default class ProfileScreen extends Component {
       this.props.navigation.dispatch(StackActions.replace('Notification'));
     } else if (viewId === 'login') {
       this.props.navigation.dispatch(StackActions.replace('LoginScreen'));
+    } else if (viewId === 'about') {
+      this.props.navigation.dispatch(StackActions.replace('About'));
+    } else if (viewId === 'settings') {
+      this.props.navigation.dispatch(StackActions.replace('Settings'));
     }
   };
   createTwoButtonAlert = () =>
@@ -120,7 +123,8 @@ export default class ProfileScreen extends Component {
                     flexDirection: 'row',
                     marginLeft: 10,
                     alignItems: 'center',
-                  }}>
+                  }}
+                  onPress={() => this.onClickListener('settings')}>
                   <Ionicons color={Color.Grey} size={25} name={'md-cog'} />
                   <Text style={styles.light}>Settings</Text>
                 </TouchableOpacity>
@@ -136,7 +140,8 @@ export default class ProfileScreen extends Component {
                     flexDirection: 'row',
                     marginLeft: 10,
                     alignItems: 'center',
-                  }}>
+                  }}
+                  onPress={() => this.onClickListener('about')}>
                   <Ionicons
                     color={Color.Grey}
                     size={25}
