@@ -13,6 +13,7 @@ import StudentSignup from './src/Login/StudentSignup';
 import NewPassword from './src/Login/NewPassword';
 import EmailOtp from './src/Login/EmailOtp';
 import Notification from './src/Notifications/Notification';
+import NotificationHead from './src/Notifications/Notificationhead';
 import Attendance from './src/Attendance/Attendance';
 import AttendanceTeacher from './src/Attendance/AttendanceTeacher';
 import AddAttendance from './src/Attendance/AddAttendance';
@@ -74,6 +75,11 @@ function App() {
         <Stack.Screen
           name="Notification"
           component={Notification}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NotificationHead"
+          component={NotificationHead}
           options={{headerShown: false}}
         />
         <Stack.Screen

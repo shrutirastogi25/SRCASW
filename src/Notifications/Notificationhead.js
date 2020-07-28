@@ -1,12 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {View, Text, FlatList, ScrollView, StyleSheet} from 'react-native';
+import {View, ScrollView, Text, StyleSheet, FlatList} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Color from '../Utils/Color';
 
-export default class HomeScreen extends Component {
+export default class NotificationHead extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,18 +37,19 @@ export default class HomeScreen extends Component {
     });
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.getList();
   }
   onClickListener = viewId => {
     if (viewId === 'profile') {
       this.props.navigation.dispatch(StackActions.replace('ProfileScreen'));
+    } else if (viewId === 'home') {
+      this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
     } else if (viewId === 'attendance') {
-      this.props.navigation.dispatch(StackActions.replace('AttendanceTeacher'));
-    } else if (viewId === 'notification') {
-      this.props.navigation.dispatch(StackActions.replace('NotificationHead'));
+      this.props.navigation.dispatch(StackActions.replace('Notification'));
     }
   };
+
   render() {
     return (
       <View style={{flex: 1}}>
@@ -82,7 +83,7 @@ export default class HomeScreen extends Component {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.onClickListener('home')}>
               <Ionicons color="white" size={50} name={'md-home'} />
             </TouchableOpacity>
           </View>
@@ -107,8 +108,7 @@ export default class HomeScreen extends Component {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <TouchableOpacity
-              onPress={() => this.onClickListener('notification')}>
+            <TouchableOpacity>
               <Ionicons color="white" size={50} name={'md-notifications'} />
             </TouchableOpacity>
           </View>
@@ -135,10 +135,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderTopLeftRadius: 60,
-    height: 250,
-    elevation: 10,
+    height: 100,
+    elevation: 5,
     marginVertical: 10,
     marginHorizontal: 10,
-    backgroundColor: Color.WhiteSmoke,
+    backgroundColor: 'white',
   },
 });
