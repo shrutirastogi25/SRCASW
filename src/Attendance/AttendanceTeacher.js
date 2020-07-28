@@ -1,72 +1,107 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {View, Text, FlatList, ScrollView, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Dropdown} from 'react-native-material-dropdown';
 import Color from '../Utils/Color';
+import BottomNavBar from '../CommonComponents/BottomNavBar';
 
-export default class HomeScreen extends Component {
+export default class AttendanceTeacher extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      list: [],
-    };
-  }
-  getList = () => {
-    const li = [
-      {key: '1'},
-      {key: '2'},
-      {key: '3'},
-      {key: '4'},
-      {key: '5'},
-      {key: '6'},
-      {key: '7'},
-      {key: '8'},
-      {key: '9'},
-      {key: '10'},
-      {key: '11'},
-      {key: '12'},
-      {key: '13'},
-      {key: '14'},
-      {key: '15'},
-      {key: '16'},
-    ];
-    this.setState({
-      list: li,
-    });
-  };
-
-  componentWillMount() {
-    this.getList();
   }
   onClickListener = viewId => {
     if (viewId === 'profile') {
       this.props.navigation.dispatch(StackActions.replace('ProfileScreen'));
-    } else if (viewId === 'attendance') {
-      this.props.navigation.dispatch(StackActions.replace('AttendanceTeacher'));
+    } else if (viewId === 'home') {
+      this.props.navigation.dispatch(StackActions.replace('HomeScreen'));
     } else if (viewId === 'notification') {
       this.props.navigation.dispatch(StackActions.replace('Notification'));
-    }
+    } else if (viewId === 'add') {
+        this.props.navigation.dispatch(StackActions.replace('AddAttendance'));
+      }
   };
   render() {
+    let year = [
+      {
+        value: 'First',
+      },
+      {
+        value: 'Second',
+      },
+      {
+        value: 'Third',
+      },
+    ];
+    let subject = [
+      {
+        value: 'C++',
+      },
+      {
+        value: 'Java Programming',
+      },
+      {
+        value: 'Discrete Mathematics',
+      },
+      {
+        value: 'Operating Systems',
+      },
+      {
+        value: 'Computer Networks',
+      },
+      {
+        value: 'Data Structures',
+      },
+      {
+        value: 'Android Programming',
+      },
+      {
+        value: 'PHP',
+      },
+      {
+        value: 'Database Management System',
+      },
+      {
+        value: 'Software Engineering',
+      },
+      {
+        value: 'Algorithms',
+      },
+    ];
+
     return (
       <View style={{flex: 1}}>
-        <View style={{flex: 9}}>
-          <ScrollView>
-            <FlatList
-              scrollEnabled={true}
-              style={{flex: 1}}
-              data={this.state.list}
-              renderItem={({item}) => (
-                <View style={{backgroundColor: Color.LightMaroon}}>
-                  <TouchableOpacity style={styles.container}>
-                    <Text style={styles.darkText}>{item.key}</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
+        <View style={{flex: 7.5, flexDirection: 'row'}}>
+          <View style={{flex: 1}}>
+            <Dropdown label="Year" data={year} />
+          </View>
+          <View style={{flex: 1}}>
+            <Dropdown label="Subject" data={subject} />
+          </View>
+        </View>
+        <View style={{flex: 1.5, marginBottom: 10}}>
+          <TouchableOpacity
+            style={{
+              backgroundColor: Color.Maroon,
+              borderRadius: 50,
+              alignSelf: 'flex-end',
+              margin: 15,
+              marginBottom: 15,
+              elevation: 10,
+              height: 75,
+              width: 75,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }} onPress={() => this.onClickListener('add')}>
+            <Ionicons
+              color="white"
+              size={50}
+              name={'md-add'}
+              style={{alignSelf: 'center'}}
             />
-          </ScrollView>
+          </TouchableOpacity>
         </View>
         <View
           style={{
@@ -82,7 +117,7 @@ export default class HomeScreen extends Component {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.onClickListener('home')}>
               <Ionicons color="white" size={50} name={'md-home'} />
             </TouchableOpacity>
           </View>
@@ -94,8 +129,7 @@ export default class HomeScreen extends Component {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <TouchableOpacity
-              onPress={() => this.onClickListener('attendance')}>
+            <TouchableOpacity>
               <Ionicons color="white" size={50} name={'md-calendar'} />
             </TouchableOpacity>
           </View>
@@ -123,22 +157,3 @@ export default class HomeScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  darkText: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: Color.Maroon,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderTopLeftRadius: 60,
-    height: 250,
-    elevation: 10,
-    marginVertical: 10,
-    marginHorizontal: 10,
-    backgroundColor: Color.WhiteSmoke,
-  },
-});

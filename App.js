@@ -14,6 +14,8 @@ import NewPassword from './src/Login/NewPassword';
 import EmailOtp from './src/Login/EmailOtp';
 import Notification from './src/Notifications/Notification';
 import Attendance from './src/Attendance/Attendance';
+import AttendanceTeacher from './src/Attendance/AttendanceTeacher';
+import AddAttendance from './src/Attendance/AddAttendance';
 import About from './src/Profile/About';
 import Settings from './src/Profile/Settings';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -67,6 +69,8 @@ function App() {
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Notification" component={Notification} />
         <Stack.Screen name="Attendance" component={Attendance} />
+        <Stack.Screen name="AddAttendance" component={AddAttendance} />
+        <Stack.Screen name="AttendanceTeacher" component={AttendanceTeacher} />
         <Stack.Screen
           name="Option"
           component={Option}
