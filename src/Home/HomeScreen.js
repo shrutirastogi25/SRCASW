@@ -46,7 +46,7 @@ export default class HomeScreen extends Component {
     } else if (viewId === 'attendance') {
       this.props.navigation.dispatch(StackActions.replace('AttendanceTeacher'));
     } else if (viewId === 'notification') {
-      this.props.navigation.dispatch(StackActions.replace('NotificationHead'));
+      this.props.navigation.dispatch(StackActions.replace('Notification'));
     }
   };
   render() {
