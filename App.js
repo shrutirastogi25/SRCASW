@@ -59,7 +59,11 @@ function App() {
         />
         <Stack.Screen name="TeacherSignup" component={TeacherSignup} />
         <Stack.Screen name="StudentSignup" component={StudentSignup} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="ProfileScreen"
           component={ProfileScreen}
@@ -67,10 +71,22 @@ function App() {
         />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="Notification" component={Notification} />
-        <Stack.Screen name="Attendance" component={Attendance} />
+        <Stack.Screen
+          name="Notification"
+          component={Notification}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Attendance"
+          component={Attendance}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="AddAttendance" component={AddAttendance} />
-        <Stack.Screen name="AttendanceTeacher" component={AttendanceTeacher} />
+        <Stack.Screen
+          name="AttendanceTeacher"
+          component={AttendanceTeacher}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Option"
           component={Option}

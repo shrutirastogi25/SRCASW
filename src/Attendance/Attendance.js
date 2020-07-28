@@ -6,7 +6,6 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Dropdown} from 'react-native-material-dropdown';
 import Color from '../Utils/Color';
-import BottomNavBar from '../CommonComponents/BottomNavBar';
 
 export default class Attendance extends Component {
   constructor(props) {

@@ -1,14 +1,5 @@
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableHighlight,
-  Image,
-  BackHandler,
-} from 'react-native';
-import {StackActions} from '@react-navigation/native';
+import {Text, View, BackHandler} from 'react-native';
 
 export default class AddAttendance extends Component {
   constructor(props) {
